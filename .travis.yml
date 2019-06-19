@@ -8,3 +8,13 @@ before_install:
 script:
   - CI=true
   - docker run expigo/docker-test npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-test"
+  env: "DockerTest-env"
+  bucket_name: elasticbeanstalk-us-east-2-157812935049
+  bucket_path: "docker-test"
+  on:
+    branch: master
