@@ -6,4 +6,5 @@ before_install:
   - docker build -t expigo/docker-test -f Dockerfile.dev .
 
 script:
-  - docker run expigo/docker-test npm run test -- --coverage
+  - CI=true
+  - docker run expigo/docker-test npm run test
